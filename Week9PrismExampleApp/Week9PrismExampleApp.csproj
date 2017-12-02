@@ -48,15 +48,15 @@
     <Compile Include="Pubg\Net\Model\StatsResponse.cs" />
     <Compile Include="Pubg\Net\Model\StatsRoot.cs" />
     <Compile Include="Pubg\PUBGStatsClient.cs" />
-    <Compile Include="ViewModels\UserStatePageViewModel.cs" />
+    <Compile Include="ViewModels\UserStatsPageViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Models\WeatherItemModel.cs" />
     <Compile Include="ApiKeys.cs" />
-    <Compile Include="Views\UserStatePage.xaml.cs">
-      <DependentUpon>UserStatePage.xaml</DependentUpon>
+    <Compile Include="Views\UserStatsPage.xaml.cs">
+      <DependentUpon>UserStatsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -121,7 +121,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\UserStatePage.xaml">
+    <EmbeddedResource Include="Views\UserStatsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

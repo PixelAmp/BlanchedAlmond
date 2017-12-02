@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserStatsPageViewModelTests.cs" />
     <Compile Include="MainPageViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>

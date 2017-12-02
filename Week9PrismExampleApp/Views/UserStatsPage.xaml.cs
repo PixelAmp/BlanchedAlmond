@@ -2,9 +2,9 @@
 
 namespace Week9PrismExampleApp.Views
 {
-    public partial class UserStatePage : ContentPage
+    public partial class UserStatsPage : ContentPage
     {
-        public UserStatePage()
+        public UserStatsPage()
         {
             InitializeComponent();
         }
