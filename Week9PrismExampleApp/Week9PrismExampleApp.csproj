@@ -32,12 +32,32 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pubg\Data\Mode.cs" />
+    <Compile Include="Pubg\Data\Region.cs" />
+    <Compile Include="Pubg\Data\Season.cs" />
+    <Compile Include="Pubg\Exceptions\PUBGSharpException.cs" />
+    <Compile Include="Pubg\Helpers\MatchHistoryModes.cs" />
+    <Compile Include="Pubg\Helpers\Seasons.cs" />
+    <Compile Include="Pubg\Helpers\Stats.cs" />
+    <Compile Include="Pubg\IPUBGStatsClient.cs" />
+    <Compile Include="Pubg\Net\HttpRequester.cs" />
+    <Compile Include="Pubg\Net\HttpRequesterThrottle.cs" />
+    <Compile Include="Pubg\Net\Model\LiveTrackingStat.cs" />
+    <Compile Include="Pubg\Net\Model\MatchHistoryStat.cs" />
+    <Compile Include="Pubg\Net\Model\StatModel.cs" />
+    <Compile Include="Pubg\Net\Model\StatsResponse.cs" />
+    <Compile Include="Pubg\Net\Model\StatsRoot.cs" />
+    <Compile Include="Pubg\PUBGStatsClient.cs" />
+    <Compile Include="ViewModels\UserStatePageViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Models\WeatherItemModel.cs" />
     <Compile Include="ApiKeys.cs" />
+    <Compile Include="Views\UserStatePage.xaml.cs">
+      <DependentUpon>UserStatePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -100,7 +120,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\UserStatePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
 </Project>
