@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" 
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+    prism:ViewModelLocator.AutowireViewModel="True" 
+    x:Class="Week9PrismExampleApp.Views.SearchUserPage"
+    Title="Test">
+    <ScrollView>
+    <StackLayout
+        BackgroundColor="#222"
+        Margin="0,20,0,0"
+        Padding="30,50,30,0">
+        <Label
+            Text="PUBG Stats"
+            FontSize="20"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+            TextColor="White"/>
+        <Entry
+            Text="{Binding SearchUser_Entry_Text}"
+            FontSize="14"
+            Margin="0,20,0,0"
+            Placeholder="Enter a Battlegrounds Username..."
+            PlaceholderColor="#666"
+            HeightRequest="50"/>
+        <Button
+            Text="Search"
+            FontSize="20"
+            HeightRequest="50"
+            Margin="0,20,0,0"
+            TextColor="White"
+            BackgroundColor="Orange"
+            Command="{Binding SearchButtonClickedCommand}"/>
+        
+        <Label Text="{Binding TestLabelText}" TextColor="White" FontSize="9"/>
+        <ActivityIndicator
+            IsRunning="{Binding IsLoading}"
+            Color="White"
+            Margin="0,20,0,0"
+            HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

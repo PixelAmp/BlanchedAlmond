@@ -19,7 +19,7 @@ namespace Week9PrismExampleApp.ViewModels
 
         public async Task<StatsResponse> LoadUserStats(string username)
         {
-            var pubgService = new PUBGStatsClient(ApiKeys.WeatherKey);
+            var pubgService = new PUBGStatsClient(ApiKeys.PUBG);
             var stats = await pubgService.GetPlayerStatsAsync(username, Region.NA, Mode.All);
             return stats;
         }
