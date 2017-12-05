@@ -4,5 +4,24 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="Week9PrismExampleApp.Views.UserStatsPage">
-  
+    
+    <StackLayout>
+        <Label Text="{Binding StatsResponse.nickname}"/>
+        <ListView ItemsSource="{Binding StatsResponse.Stats}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding Mode,Mode=TwoWay}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
 </ContentPage>
