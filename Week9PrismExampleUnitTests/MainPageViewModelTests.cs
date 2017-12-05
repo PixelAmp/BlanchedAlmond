@@ -3,7 +3,6 @@ using System;
 using Week9PrismExampleApp.ViewModels;
 using Prism.Navigation;
 using Moq;
-using static Week9PrismExampleApp.Models.WeatherItemModel;
 
 namespace Week9PrismExampleUnitTests
 {
@@ -47,22 +46,6 @@ namespace Week9PrismExampleUnitTests
 		[Test]
 		public void TestNavToMoreInfoPageCommandNavigateAsyncWithCorrectParameters()
 		{
-            WeatherItem weatherItemToPass = new WeatherItem();
-			var expectedNavParams = new NavigationParameters();
-            expectedNavParams.Add("WeatherItemInfo", weatherItemToPass);
-			navigationServiceMock.Setup(
-				ns => ns.NavigateAsync(It.IsAny<string>(),
-									 It.IsAny<NavigationParameters>(),
-									 It.IsAny<bool?>(),
-									   It.IsAny<bool>()));
-
-            mainPageViewModel.NavToMoreInfoPageCommand.Execute(weatherItemToPass);
-
-			navigationServiceMock.Verify(
-				ns => ns.NavigateAsync("MoreInfoPage",
-									 expectedNavParams,
-									false,
-									 true), Times.Once());
 		}
     }
 }

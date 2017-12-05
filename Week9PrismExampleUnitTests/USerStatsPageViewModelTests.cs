@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Week9PrismExampleApp.ViewModels;
 using Prism.Navigation;
 using Moq;
-using static Week9PrismExampleApp.Models.WeatherItemModel;
 
 namespace Week9PrismExampleUnitTests
 {
