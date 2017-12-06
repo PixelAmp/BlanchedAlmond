@@ -4,4 +4,25 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
 	x:Class="Week9PrismExampleApp.App">
+
+  <Application.Resources>
+    <ResourceDictionary>
+      <Style x:Key="StackLayoutStyle" TargetType="StackLayout">
+        <Setter Property="BackgroundColor"  Value="#222"/>
+        <Setter Property="Padding" Value="0,0,0,0"/>
+      </Style>
+
+      <Style x:Key="ClickableTextButtonStyle"  TargetType="Button">
+        <Setter Property="TextColor"         Value="Black"/>
+        <Setter Property="BackgroundColor"   Value="#f4d442"/>
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+        <Setter Property="BorderColor"       Value="Transparent"/>
+      </Style>
+
+      <Style x:Key="EntryBoxStyle" TargetType="Entry">
+        <Setter Property="FontSize"      Value="20"/>
+        <Setter Property="HeightRequest" Value="50"/>
+      </Style>
+    </ResourceDictionary>
+  </Application.Resources>  
 </prism:PrismApplication>

@@ -15,19 +15,30 @@ namespace Week9PrismExampleApp.ViewModels
     public class MainPageViewModel : BindableBase, INavigationAware
     {
         public DelegateCommand NavToNewPageCommand { get; set; }
+        public DelegateCommand NavToTimerPageCommand { get; set; }
+
         INavigationService _navigationService;
 
         public MainPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
             NavToNewPageCommand = new DelegateCommand(NavToNewPage);
+            NavToTimerPageCommand = new DelegateCommand(NavToTimerPage);
         }
+        
 
         private async void NavToNewPage()
         {
             var navParams = new NavigationParameters();
             navParams.Add("NavFromPage", "MainPageViewModel");
             await _navigationService.NavigateAsync("SearchUserPage", navParams);
+        }
+
+        private async void NavToTimerPage()
+        {
+            var navParams = new NavigationParameters();
+            navParams.Add("NavFromPage", "MainPageViewModel");
+            await _navigationService.NavigateAsync("TimerPage", navParams);
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

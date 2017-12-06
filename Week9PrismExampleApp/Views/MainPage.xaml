@@ -13,7 +13,13 @@
         VerticalOptions="Start">
         <Button
             Text="CLICK ME"
-            BackgroundColor="Orange"
+            Style="{StaticResource ClickableTextButtonStyle}"
             Command="{Binding NavToNewPageCommand}"/>
+
+        <Button
+            Text="Go to Blue Field Timer"
+            Style="{StaticResource ClickableTextButtonStyle}"
+            Command="{Binding NavToTimerPageCommand}"/>
+
     </StackLayout>
 </ContentPage>
