@@ -13,6 +13,7 @@ using Microsoft.AppCenter.Analytics;
 using Xamarin.Forms;
 using System.Text;
 using Newtonsoft.Json;
+using PUBGSharp.Data;
 
 namespace Week9PrismExampleApp.ViewModels
 {
@@ -60,7 +61,7 @@ namespace Week9PrismExampleApp.ViewModels
             IsLoading = true;
             try
             {
-                var stats = await statsClient.GetPlayerStatsAsync(SearchUser_Entry_Text);
+                var stats = await statsClient.GetPlayerStatsAsync(SearchUser_Entry_Text ?? "cookiedragon4", Region.NA);
                 //TestLabelText = JsonConvert.SerializeObject(stats.Stats).Substring(0, 10000); //cannot be too long or it wont show
                 IsLoading = false;
                 var navParams = new NavigationParameters();
@@ -70,7 +71,7 @@ namespace Week9PrismExampleApp.ViewModels
             } catch (Exception ex)
             {
                 IsLoading = false;
-                await _dialogService.DisplayAlertAsync("Error", ex.Message, "OK");
+                await _dialogService.DisplayAlertAsync("Error", ex.ToString(), "OK");
                 //TestLabelText = "";
             }
         }

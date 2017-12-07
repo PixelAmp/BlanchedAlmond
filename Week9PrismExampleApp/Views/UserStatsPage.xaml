@@ -6,6 +6,7 @@
              x:Class="Week9PrismExampleApp.Views.UserStatsPage">
     
     <StackLayout>
+        <Label Text="Stats"/>
         <Label Text="{Binding StatsResponse.nickname}"/>
         <ListView ItemsSource="{Binding StatsResponse.Stats}">
             <ListView.ItemTemplate>
