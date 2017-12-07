@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week9PrismExampleApp", "Week9PrismExampleApp\Week9PrismExampleApp.csproj", "{B0119A6C-9EB2-472A-A40A-B47F8819294C}"
 EndProject
@@ -48,6 +48,7 @@ Global
 		{A448DDE5-BC84-4996-834C-1A401D8C3692}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{C656E3F0-C2BD-4245-A31E-FFD572668C4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C656E3F0-C2BD-4245-A31E-FFD572668C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C656E3F0-C2BD-4245-A31E-FFD572668C4A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{C656E3F0-C2BD-4245-A31E-FFD572668C4A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{C656E3F0-C2BD-4245-A31E-FFD572668C4A}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{C656E3F0-C2BD-4245-A31E-FFD572668C4A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU

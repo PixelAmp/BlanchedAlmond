@@ -43,7 +43,31 @@ namespace Week9PrismExampleUnitTests
                                      true), Times.Once());
         }
 
-		[Test]
+
+        [Test]
+        public void TestNavToTimerPageCommandNavigateAsyncWithCorrectParameters()
+        {
+            // Arrange: create expected NavParameters, do Mock setup for navigation
+            var expectedNavParams = new NavigationParameters();
+            expectedNavParams.Add("NavFromPage", "TimerPageViewModel");
+            navigationServiceMock.Setup(
+                ns => ns.NavigateAsync(It.IsAny<string>(),
+                                     It.IsAny<NavigationParameters>(),
+                                     It.IsAny<bool?>(),
+                                       It.IsAny<bool>()));
+
+            // Act: Call the method/command under test
+            mainPageViewModel.NavToTimerPageCommand.Execute();
+
+            // Assert: Verify that proper navigate async call was made once
+            navigationServiceMock.Verify(
+                ns => ns.NavigateAsync("SamplePageForNavigation",
+                                     expectedNavParams,
+                                    false,
+                                     true), Times.Once());
+        }
+
+        [Test]
 		public void TestNavToMoreInfoPageCommandNavigateAsyncWithCorrectParameters()
 		{
 		}

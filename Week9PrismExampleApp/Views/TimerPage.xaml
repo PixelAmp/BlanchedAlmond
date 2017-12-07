@@ -1,22 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-    prism:ViewModelLocator.AutowireViewModel="True"
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" 
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+    prism:ViewModelLocator.AutowireViewModel="True" 
     x:Class="Week9PrismExampleApp.Views.TimerPage"
-    
     Title="Blue Field Timer">
    
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource StackLayoutStyle}">
+        <StackLayout Padding="0,0,0,20" Style="{StaticResource StackLayoutStyle} ">
+
+            <!-- 
+            TO DO:
+                Make page Grid Layout
+                Make TImer Work
+                Make buttons work
+                Add more buttons & Options
+                Add sounds (alarm?)
+                Make OnNavigate... actually useful
+                Make Main Page Prettier            
+            -->
+
             <Label 
                 x:Name="TimerLabel"
                 Text="Timer Here!"
                 FontSize="40"
                 TextColor="Black"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                Margin="0,100,0,50"
+                HorizontalOptions="Center"
+                />
+
+            <Button
+                x:Name="StartButton"
+                Style="{StaticResource ClickableTextButtonStyle}"
+                Text="Start Timer"
+                Command="{Binding StartTimerCommand}" 
+                Margin="0,100,0,0"
+                />
+               
+            
+            <Button
+                x:Name="ResetButton"
+                Style="{StaticResource ClickableTextButtonStyle}"
+                Text="Reset Timer"
+                Command="{Binding ResetTimerCommand}" 
+                />               
+
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

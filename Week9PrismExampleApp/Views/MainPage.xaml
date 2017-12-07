@@ -7,10 +7,10 @@
     x:Class="Week9PrismExampleApp.Views.MainPage"
     Title="MainPage"
     Padding="0,20,0,0">
+
     <StackLayout
-        Padding="0,20,0,0"
-        HorizontalOptions="Center"
-        VerticalOptions="Start">
+         Style="{StaticResource StackLayoutStyle}"
+        Padding="0,20,0,0">
         <Button
             Text="CLICK ME"
             Style="{StaticResource ClickableTextButtonStyle}"
