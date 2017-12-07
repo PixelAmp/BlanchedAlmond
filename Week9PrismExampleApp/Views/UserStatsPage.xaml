@@ -6,6 +6,8 @@
              x:Class="Week9PrismExampleApp.Views.UserStatsPage">
     
     <StackLayout>
+        <Label Text="Stats"/>
+        <Image  Source="{Binding StatsResponse.Avatar}"/>
         <Label Text="{Binding StatsResponse.nickname}"/>
         <ListView ItemsSource="{Binding StatsResponse.Stats}">
             <ListView.ItemTemplate>
@@ -16,7 +18,7 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Text="{Binding Mode,Mode=TwoWay}" />
+                            <Label Grid.Column="0" Text="{Binding Mode}" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
