@@ -23,7 +23,7 @@ namespace Week9PrismExampleApp.ViewModels
 
         public UserStatsPageViewModel()
         {
-            //StatsResponse = LoadUserStats("cookiedragon4").Result;
+            
         }
 
         public async Task<StatsResponse> LoadUserStats(string username)
@@ -40,11 +40,13 @@ namespace Week9PrismExampleApp.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
+            StatsResponse = (StatsResponse)parameters["Stats"];
         }
 
         public void OnNavigatingTo(NavigationParameters parameters)
         {
-            StatsResponse = (StatsResponse)parameters["stats"];
+            StatsResponse = (StatsResponse)parameters["Stats"];
         }
+         
     }
 }
