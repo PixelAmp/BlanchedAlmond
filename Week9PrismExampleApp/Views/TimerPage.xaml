@@ -27,22 +27,20 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                
             </Grid.RowDefinitions>
 
 
                 <!-- 
                 TO DO:
-                    Make page Grid Layout
                     Make Timer Work
-                    Make buttons work
                     Add more buttons & Options
                     Add sounds (alarm?)
-                    Make OnNavigate... actually useful
+                    Make OnNavigate... actually useful - I tried, but it doesn't seem to work? I'll try working on it again L8r
                     Make Main Page Prettier            
                 -->
 
             <Frame
+                x:Name="TimerFrame"
                 Style="{StaticResource InfoFrameStyle}"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
@@ -50,8 +48,7 @@
                 HeightRequest="150"
                 WidthRequest="300"
                 >
-                <Label 
-                    x:Name="TimerLabel"
+                <Label                     
                     Text="5:30"
                     FontSize="80"
                     TextColor="#f4d442"
@@ -64,50 +61,83 @@
                 
                 
             <Frame
+                x:Name="CircleNumLabel"
                 Style="{StaticResource InfoFrameStyle}"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Grid.Row="1"
                 >
-                <Label 
-                    x:Name="CircleNumLabel"
-                    Text="{Binding CirceNum, StringFormat='Circle #{0}'}" FontAttributes="Bold"
-                    FontSize="Medium"
-                    TextColor="#f4d442"
-                    HorizontalTextAlignment="Center"                        
-                />
+                <StackLayout>
+                    <Label                    
+                        Text="Circle #"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        TextColor="#f4d442"
+                        HorizontalOptions="Center"                        
+                    />
+
+                    <Label 
+                        Text="{Binding CirceNum}" 
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        TextColor="#f4d442"
+                        HorizontalOptions="Center"                        
+                    />
+                </StackLayout>
             </Frame>
 
 
             <Frame
+                x:Name="LengthNumFrame"
                 Style="{StaticResource InfoFrameStyle}"
                 Grid.Column="2"
                 Grid.ColumnSpan="2"
                 Grid.Row="1"
                 >
-                <Label 
-                    x:Name="LengthNumLabel"
-                    Text="{Binding LengthNum, StringFormat='Length {0} m'}" FontAttributes="Bold"
-                    FontSize="Medium"
-                    TextColor="#f4d442"
-                    HorizontalTextAlignment="Center"
+                <StackLayout>
+                    <Label                     
+                        Text="Length" FontAttributes="Bold"
+                        FontSize="Medium"
+                        TextColor="#f4d442"
+                        HorizontalOptions="Center"
                                 
-                />
+                    />
+
+                    <Label
+                        Text="{Binding LengthNum}"
+                        FontSize="Medium"
+                        TextColor="#f4d442"
+                        HorizontalOptions="Center"
+
+                        />
+                </StackLayout>
             </Frame>
 
             <Frame
+                x:Name="DamageFrame"
                 Style="{StaticResource InfoFrameStyle}"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 Grid.Row="2"                   
                 >
-                <Label 
-                    x:Name="DamageLabel"
-                    Text="{Binding DamageTick, StringFormat='Damage/Tick: {0}'}" FontAttributes="Bold"
-                    FontSize="Medium"
-                    TextColor="Black"
-                    HorizontalOptions="Center"
-                    />
+                <StackLayout>
+                    <Label                    
+                        Text="Damage/Tick" 
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        TextColor="#f4d442"
+                        HorizontalOptions="Center"
+                        />
+                
+                
+                    <Label 
+                        Text="{Binding DamageNum}" 
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        TextColor="#f4d442"
+                        HorizontalOptions="Center"
+                        />
+                </StackLayout>
             </Frame>
 
                 
