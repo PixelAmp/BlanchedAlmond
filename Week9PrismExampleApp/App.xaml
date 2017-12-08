@@ -15,7 +15,7 @@
       <Style x:Key="ClickableTextButtonStyle"  TargetType="Button">
         <Setter Property="TextColor"         Value="Black"/>
         <Setter Property="BackgroundColor"   Value="#f4d442"/>
-        <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
         <Setter Property="BorderColor"       Value="Transparent"/>
       </Style>
 
@@ -23,6 +23,18 @@
         <Setter Property="FontSize"      Value="20"/>
         <Setter Property="HeightRequest" Value="50"/>
       </Style>
+
+      <Style x:Key="InfoFrameStyle" TargetType="Frame">
+        <Setter Property="OutlineColor"       Value="#f4d442"/>
+        <Setter Property="BackgroundColor"    Value="Black"/>
+        <Setter Property="HorizontalOptions"  Value="Center"/>
+        <Setter Property="VerticalOptions"    Value="Center"/>
+        <Setter Property="HeightRequest"      Value="60"/>
+        <Setter Property="WidthRequest"       Value="150"/>
+        <Setter Property="Padding"            Value="0,0,0,0"/>
+      </Style>
+
+
     </ResourceDictionary>
   </Application.Resources>  
 </prism:PrismApplication>
