@@ -66,13 +66,14 @@ namespace Week9PrismExampleApp.ViewModels
 
         void StartTimer()
         {
-            CircleLayer++;
+            //CircleLayer++;
             UpdatePage();
+            timerthing();
         }
 
         void ShowInfo()
         {
-            
+
         }
 
         public void OnStart()
@@ -147,9 +148,24 @@ namespace Week9PrismExampleApp.ViewModels
                     break;
 
             }
+        }
 
-            
+        
+
+        void timerthing()
+        {
+            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+                CircleLayer++;
+                UpdatePage();
+                if (CircleLayer <= 60)
+                {
+                    return true; //continue
+                }
+                return false; //not continue
+
+            });
         }
 
     }
+    
 }

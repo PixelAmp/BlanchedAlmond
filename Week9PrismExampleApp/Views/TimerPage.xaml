@@ -108,7 +108,7 @@
                         FontSize="Medium"
                         TextColor="#f4d442"
                         HorizontalOptions="Center"
-
+                        HorizontalTextAlignment="Center"
                         />
                 </StackLayout>
             </Frame>
