@@ -14,11 +14,27 @@
                 <DataTemplate>
                     <ViewCell>
                         <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Text="{Binding Mode}" />
+                            
+                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding Mode}" />
+                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding KdRatio.Stat}" />
+                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding KdRatio.Value}" />
+                            <Label Grid.Column="2" Grid.Row="0" Text="{Binding WinPercent.Stat}" />
+                            <Label Grid.Column="2" Grid.Row="1" Text="{Binding WinPercent.Value}" />
+                            <Label Grid.Column="3" Grid.Row="0" Text="{Binding TimeSurvived.Stat}" />
+                            <Label Grid.Column="3" Grid.Row="1" Text="{Binding TimeSurvived.Value}" />
+                            <Label Grid.Column="4" Grid.Row="0" Text="{Binding RoundsPlayed.Stat}" />
+                            <Label Grid.Column="4" Grid.Row="1" Text="{Binding RoundsPlayed.Value}" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

@@ -30,6 +30,8 @@ namespace Week9PrismExampleApp.ViewModels
         {
             var pubgService = new PUBGStatsClient(ApiKeys.PUBG);
             var stats = await pubgService.GetPlayerStatsAsync(username, Region.NA, Mode.All);
+
+            //stats.Stats[0].Stats[0].Stat
             return stats;
         }
 
