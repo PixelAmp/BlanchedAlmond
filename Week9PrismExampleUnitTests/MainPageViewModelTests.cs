@@ -3,6 +3,7 @@ using System;
 using Week9PrismExampleApp.ViewModels;
 using Prism.Navigation;
 using Moq;
+using Prism.Services;
 
 namespace Week9PrismExampleUnitTests
 {
@@ -12,12 +13,13 @@ namespace Week9PrismExampleUnitTests
         MainPageViewModel mainPageViewModel;
 
         Mock<INavigationService> navigationServiceMock;
-
+        Mock<IPageDialogService> dialogServiceMock;
         [SetUp]
         public void Init()
         {
             navigationServiceMock = new Mock<INavigationService>();
-            mainPageViewModel = new MainPageViewModel(navigationServiceMock.Object);
+            dialogServiceMock = new Mock<IPageDialogService>();
+            mainPageViewModel = new MainPageViewModel(navigationServiceMock.Object, dialogServiceMock.Object);
         }
 
         [Test]
