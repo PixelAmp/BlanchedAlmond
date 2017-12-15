@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" 
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+    prism:ViewModelLocator.AutowireViewModel="True" 
+    x:Class="Week9PrismExampleApp.Views.MapPage"
+    Title="Drop Location Decider">
+
+   
+    <StackLayout
+        Style="{StaticResource StackLayoutStyle}"
+        Padding="0,0,0,0">
+            <Image 
+                Source="{Binding DisplayLocation}" 
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill"
+                Margin="20"/>
+        
+            <Label
+                Text="{Binding LocName}"
+                FontAttributes="Bold"
+                TextColor="#f4d442"
+                FontSize="80"
+                HorizontalOptions="Center"/>
+            
+            <Button 
+                x:Name="NewLocation"
+                Text="Pick a place to drop"
+                Style="{StaticResource ClickableTextButtonStyle}"
+                Command="{Binding LocButtonClickedCommand}"/>
+
+    </StackLayout>
+</ContentPage>

@@ -19,6 +19,7 @@ namespace Week9PrismExampleApp.ViewModels
         public DelegateCommand NavToNewPageCommand { get; set; }
         public DelegateCommand NavToTimerPageCommand { get; set; }
         public DelegateCommand NavToUserStatsPageCommand { get; set; }
+        public DelegateCommand NavToMapPageCommand { get; set; }
 
         private INavigationService _navigationService;
         private IPageDialogService _dialogService;
@@ -30,6 +31,7 @@ namespace Week9PrismExampleApp.ViewModels
             NavToNewPageCommand = new DelegateCommand(NavToNewPage);
             NavToTimerPageCommand = new DelegateCommand(NavToTimerPage);
             NavToUserStatsPageCommand = new DelegateCommand(NavToUserStatsPage);
+            NavToMapPageCommand = new DelegateCommand(NavToMapPage);
         }
 
         private bool _IsLoading;
@@ -39,6 +41,12 @@ namespace Week9PrismExampleApp.ViewModels
             set { SetProperty(ref _IsLoading, value); }
         }
 
+        private async void NavToMapPage()
+        {
+            var navParams = new NavigationParameters();
+            navParams.Add("NavFromPage", "MainPageViewModel");
+            await _navigationService.NavigateAsync("MapPage", navParams);
+        }
 
         private async void NavToNewPage()
         {

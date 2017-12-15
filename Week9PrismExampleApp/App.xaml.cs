@@ -32,6 +32,7 @@ namespace Week9PrismExampleApp
             Container.RegisterTypeForNavigation<SearchUserPage>();
             Container.RegisterTypeForNavigation<UserStatsPage>();
             Container.RegisterTypeForNavigation<TimerPage>();
+            Container.RegisterTypeForNavigation<MapPage>();
         }
     }
 }
