@@ -7,24 +7,27 @@
 
   <Application.Resources>
     <ResourceDictionary>
-      <Style x:Key="StackLayoutStyle" TargetType="StackLayout">
-        <Setter Property="BackgroundColor"  Value="#222"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
+      <Style x:Key="StackLayoutStyle"         TargetType="StackLayout">
+        <Setter Property="BackgroundColor"    Value="#222"/>
+        <Setter Property="Padding"            Value="30,0,30,0"/>
       </Style>
 
-      <Style x:Key="ClickableTextButtonStyle"  TargetType="Button">
-        <Setter Property="TextColor"         Value="Black"/>
-        <Setter Property="BackgroundColor"   Value="#f4d442"/>
-        <Setter Property="HorizontalOptions" Value="Center"/>
-        <Setter Property="BorderColor"       Value="Transparent"/>
+      <Style x:Key="ClickableTextButtonStyle" TargetType="Button">
+        <Setter Property="TextColor"          Value="#222"/>
+        <Setter Property="FontAttributes"     Value="Bold"/>
+        <Setter Property="BackgroundColor"    Value="#f4d442"/>
+        <Setter Property="HorizontalOptions"  Value="Fill"/>
+        <Setter Property="FontSize"           Value="20"/>
+        <Setter Property="BorderColor"        Value="Transparent"/>
       </Style>
 
-      <Style x:Key="EntryBoxStyle" TargetType="Entry">
-        <Setter Property="FontSize"      Value="20"/>
-        <Setter Property="HeightRequest" Value="50"/>
+      <Style x:Key="EntryBoxStyle"            TargetType="Entry">
+        <Setter Property="FontSize"           Value="14"/>
+        <Setter Property="HeightRequest"      Value="50"/>
+        <Setter Property="PlaceholderColor"   Value="#666"/>
       </Style>
 
-      <Style x:Key="InfoFrameStyle" TargetType="Frame">
+      <Style x:Key="InfoFrameStyle"           TargetType="Frame">
         <Setter Property="OutlineColor"       Value="#f4d442"/>
         <Setter Property="BackgroundColor"    Value="Black"/>
         <Setter Property="HorizontalOptions"  Value="Center"/>
@@ -34,7 +37,11 @@
         <Setter Property="Padding"            Value="0,0,0,0"/>
       </Style>
 
+      <Style x:Key="ActivityIndicatorStyle"   TargetType="ActivityIndicator">
+        <Setter Property="Color"              Value="White"/>
+        <Setter Property="HorizontalOptions"  Value="FillAndExpand"/>
+      </Style>
 
-    </ResourceDictionary>
+      </ResourceDictionary>
   </Application.Resources>  
 </prism:PrismApplication>

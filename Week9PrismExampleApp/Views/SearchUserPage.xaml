@@ -26,12 +26,11 @@
             PlaceholderColor="#666"
             HeightRequest="50"/>
         <Button
+            Style="{StaticResource ClickableTextButtonStyle}"
             Text="Search"
             FontSize="20"
             HeightRequest="50"
             Margin="0,20,0,0"
-            TextColor="White"
-            BackgroundColor="Orange"
             Command="{Binding SearchButtonClickedCommand}"/>
         
         <Label Text="{Binding TestLabelText}" TextColor="White" FontSize="9"/>
