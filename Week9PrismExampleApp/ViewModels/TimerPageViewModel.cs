@@ -20,10 +20,31 @@ namespace Week9PrismExampleApp.ViewModels
 {
     public class TimerPageViewModel : BindableBase
     {
+        int CircleLayer = 1;
+        int shrink = 0;
+        int second = 0;
+        int minute = 5;
+        bool timer = false;
+
+
+
         public DelegateCommand ResetTimerCommand { get; set; }
         public DelegateCommand StartTimerCommand { get; set; }
         public DelegateCommand ShowInfoCommand { get; set; }
 
+        private string _secNum;
+        public string SecNum
+        {
+            get { return _secNum; }
+            set { SetProperty(ref _secNum, value); }
+        }
+
+        private string _minNum;
+        public string MinNum
+        {
+            get { return _minNum; }
+            set { SetProperty(ref _minNum, value); }
+        }
 
         private string _circeNum;
         public string CirceNum
@@ -47,7 +68,7 @@ namespace Week9PrismExampleApp.ViewModels
         }
 
 
-        int CircleLayer;
+        
 
         public TimerPageViewModel()
         {
@@ -58,17 +79,26 @@ namespace Week9PrismExampleApp.ViewModels
 
         void ResetTimer()
         {
+            timer = false;
+            second = 20;
+            minute = 0;
+            MinNum = minute.ToString();
+            if (second < 10)
+                SecNum = "0" + second.ToString();
+            
+            else
+                SecNum = second.ToString();
+
             CircleLayer = 1;
             CirceNum = "1";
-            LengthNum = "4550";
+            LengthNum = "4550m";
             DamageNum = "0.4%";
         }
 
         void StartTimer()
         {
-            //CircleLayer++;
-            UpdatePage();
-            timerthing();
+            timer = true;
+            TimerLoop();
         }
 
         void ShowInfo()
@@ -79,6 +109,7 @@ namespace Week9PrismExampleApp.ViewModels
         public void OnStart()
         {
             ResetTimer();
+
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -94,78 +125,149 @@ namespace Week9PrismExampleApp.ViewModels
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             ResetTimer();
+            
         }
 
         void UpdatePage()
         {
-            switch (CircleLayer)
+            switch (shrink)
             {
-                case 1:
+                case 1: //circle shrinking for first time
+                    second = 0;
+                    minute = 5;
                     CirceNum = "1";
                     LengthNum = "4550m";
                     DamageNum = "0.4%";
                     break;
-                case 2:
+                case 3: //second cicle shrink
+                    second = 20;
+                    minute = 2;
                     CirceNum = "2";
                     LengthNum = "2970m";
                     DamageNum = "0.6%";
                     break;
-                case 3:
+                case 5: //third circle
+                    second = 30;
+                    minute = 1;
                     CirceNum = "3";
                     LengthNum = "1480m";
                     DamageNum = "0.8%";
                     break;
-                case 4:
+                case 7: //fourth circle
+                    second = 0;
+                    minute = 1;
                     CirceNum = "4";
                     LengthNum = "740m";
                     DamageNum = "1.0%";
                     break;
-                case 5:
+                case 9: //fifth cicle
+                    second = 40;
+                    minute = 0;
                     CirceNum = "5";
                     LengthNum = "360m";
                     DamageNum = "3.0%";
                     break;
-                case 6:
+                case 11: //sixth cicle
+                    second = 30;
+                    minute = 0;
                     CirceNum = "6";
                     LengthNum = "175m";
                     DamageNum = "5.0%";
                     break;
-                case 7:
+                case 13: //seventh cicle
+                    second = 30;
+                    minute = 0;
                     CirceNum = "7";
                     LengthNum = "90m";
                     DamageNum = "7.0%";
                     break;
-                case 8:
+                case 15: //last cicle
+                    second = 0;
+                    minute = 0;
                     CirceNum = "8";
                     LengthNum = "40m";
                     DamageNum = "11.0%";
+                    timer = false;
                     break;
+
+                case 2: //first cool down after first circle
+                    second = 20;
+                    minute = 3;
+                    break;
+                case 4: //second cool down after second circle
+                    second = 20;
+                    minute = 3;
+                    break;
+                case 6: //second cool down after third circle
+                    second = 0;
+                    minute = 2;
+                    break;
+                case 8: //second cool down after fourth circle
+                    second = 30;
+                    minute = 1;
+                    break;
+                case 10: //second cool down after fifth circle
+                    second = 0;
+                    minute = 1;
+                    break;
+                case 12: //second cool down after fifth circle
+                    second = 30;
+                    minute = 0;
+                    break;
+
                 default:
+                    second = 0;
+                    minute = 0;
                     CircleLayer = 1;
                     CirceNum = "1";
                     LengthNum = "4550m";
                     DamageNum = "0.4%";
+                    timer = false;
                     break;
 
             }
-        }
+        }       
 
-        
-
-        void timerthing()
+        void TimerLoop()
         {
             Device.StartTimer(TimeSpan.FromSeconds(1), () => {
-                CircleLayer++;
-                UpdatePage();
-                if (CircleLayer <= 60)
+                if (timer)
                 {
+                    TimeKeep();
                     return true; //continue
                 }
                 return false; //not continue
-
             });
         }
 
+        void TimeKeep()
+        {
+            second--;
+            if (second < 0)
+            {
+                minute--;
+                second = 59;
+            }
+
+            if (minute == 0 && second == 0)
+            {
+                shrink++;
+                UpdatePage();
+
+            }
+
+            MinNum = minute.ToString();
+            if (second < 10)
+            {
+                SecNum = "0" + second.ToString();
+            }
+            else
+            {
+                SecNum = second.ToString();
+            }
+        }
+
     }
+
     
 }

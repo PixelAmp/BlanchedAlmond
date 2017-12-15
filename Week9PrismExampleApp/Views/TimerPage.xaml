@@ -12,7 +12,7 @@
         
         <Grid 
             BackgroundColor="#222"
-            Padding="0,0,0,10">
+            Padding="0,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -48,15 +48,39 @@
                 HeightRequest="150"
                 WidthRequest="300"
                 >
-                <Label                     
-                    Text="5:30"
-                    FontSize="80"
-                    TextColor="#f4d442"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"
-                />
+                <StackLayout  Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label       
+                        x:Name="MinLabel"
+                        Text="{Binding MinNum}"
+                        FontSize="80"
+                        TextColor="#f4d442"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                    />
+                    <Label       
+                        x:Name="ColonLabel"
+                        Text=":"
+                        FontSize="80"
+                        TextColor="#f4d442"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                    />
+                    <Label       
+                        x:Name="SecLabel"
+                        Text="{Binding SecNum}"
+                        FontSize="80"
+                        TextColor="#f4d442"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                    />
+
+                </StackLayout>
             </Frame>
                 
                 
