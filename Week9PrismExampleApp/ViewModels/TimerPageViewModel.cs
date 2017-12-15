@@ -11,6 +11,7 @@ using System.Runtime.CompilerServices;
 using Microsoft.AppCenter.Analytics;
 using System.Threading;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 //https://www.reddit.com/r/PUBATTLEGROUNDS/comments/6odhok/circle_breakdown_times_damage_travel_time_and_tips/
 //a bit outdated I think, but a good starting point
@@ -80,8 +81,9 @@ namespace Week9PrismExampleApp.ViewModels
         void ResetTimer()
         {
             timer = false;
-            second = 20;
-            minute = 0;
+            second = 0;
+            minute = 5;
+            shrink = 0;
             MinNum = minute.ToString();
             if (second < 10)
                 SecNum = "0" + second.ToString();
@@ -101,9 +103,14 @@ namespace Week9PrismExampleApp.ViewModels
             TimerLoop();
         }
 
-        void ShowInfo()
+        async void ShowInfo()
         {
+            await DisplayAlert("Healing outside the Circle", "1-4    Bandages&#10;&#10;5    Bandages + Boosters&#10;&#10;6    First Aid Kit OR Med Kit&#10;&#10;7+   Nothing!", "OK");
+        }
 
+        private Task DisplayAlert(string v1, string v2, string v3)
+        {
+            throw new NotImplementedException();
         }
 
         public void OnStart()
@@ -182,7 +189,7 @@ namespace Week9PrismExampleApp.ViewModels
                     DamageNum = "7.0%";
                     break;
                 case 15: //last cicle
-                    second = 0;
+                    second = 10;
                     minute = 0;
                     CirceNum = "8";
                     LengthNum = "40m";
@@ -211,7 +218,7 @@ namespace Week9PrismExampleApp.ViewModels
                     minute = 1;
                     break;
                 case 12: //second cool down after fifth circle
-                    second = 30;
+                    second = 15;
                     minute = 0;
                     break;
 
@@ -224,7 +231,6 @@ namespace Week9PrismExampleApp.ViewModels
                     DamageNum = "0.4%";
                     timer = false;
                     break;
-
             }
         }       
 
