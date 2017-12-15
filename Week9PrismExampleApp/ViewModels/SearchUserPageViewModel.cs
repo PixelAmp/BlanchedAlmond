@@ -24,8 +24,6 @@ namespace Week9PrismExampleApp.ViewModels
         public DelegateCommand SearchButtonClickedCommand { get; set; }
         private PUBGSharp.PUBGStatsClient statsClient;
 
-        public HttpResponseMessage responseMessage = new HttpResponseMessage();
-
         public SearchUserPageViewModel(INavigationService navigationService, IPageDialogService dialogService)
         {
             _navigationService = navigationService;
@@ -57,22 +55,25 @@ namespace Week9PrismExampleApp.ViewModels
 
         public async void SearchButtonClicked()
         {
-            //TestLabelText = "Retrieving...";
+            if (SearchUser_Entry_Text == null || SearchUser_Entry_Text == "")
+            {
+                await _dialogService.DisplayAlertAsync("Error", "Please enter a username", "OK");
+                return;
+            }
             IsLoading = true;
             try
             {
-                var stats = await statsClient.GetPlayerStatsAsync(SearchUser_Entry_Text ?? "cookiedragon4", Region.NA);
-                //TestLabelText = JsonConvert.SerializeObject(stats.Stats).Substring(0, 10000); //cannot be too long or it wont show
+                var stats = await statsClient.GetPlayerStatsAsync(SearchUser_Entry_Text, Region.NA);
                 IsLoading = false;
                 var navParams = new NavigationParameters();
                 navParams.Add("Stats", stats);
+                navParams.Add("NavFromPage", "SearchUserPageViewModel");
                 await _navigationService.NavigateAsync("UserStatsPage", navParams);
 
             } catch (Exception ex)
             {
                 IsLoading = false;
-                await _dialogService.DisplayAlertAsync("Error", ex.ToString(), "OK");
-                //TestLabelText = "";
+                await _dialogService.DisplayAlertAsync("Error", ex.Message, "OK");
             }
         }
 

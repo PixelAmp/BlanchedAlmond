@@ -7,9 +7,8 @@
     prism:ViewModelLocator.AutowireViewModel="True" 
     x:Class="Week9PrismExampleApp.Views.SearchUserPage"
     Title="Test">
-    <ScrollView>
     <StackLayout
-        BackgroundColor="#222"
+        Style="{StaticResource StackLayoutStyle}"
         Margin="0,20,0,0"
         Padding="30,50,30,0">
         <Label
@@ -19,27 +18,18 @@
             FontAttributes="Bold"
             TextColor="White"/>
         <Entry
+            Style="{StaticResource EntryBoxStyle}"
             Text="{Binding SearchUser_Entry_Text}"
-            FontSize="14"
             Margin="0,20,0,0"
-            Placeholder="Enter a Battlegrounds Username..."
-            PlaceholderColor="#666"
-            HeightRequest="50"/>
+            Placeholder="Enter a Battlegrounds Username..."/>
         <Button
+            Style="{StaticResource ClickableTextButtonStyle}"
             Text="Search"
-            FontSize="20"
-            HeightRequest="50"
             Margin="0,20,0,0"
-            TextColor="White"
-            BackgroundColor="Orange"
             Command="{Binding SearchButtonClickedCommand}"/>
-        
-        <Label Text="{Binding TestLabelText}" TextColor="White" FontSize="9"/>
         <ActivityIndicator
+            Style="{StaticResource ActivityIndicatorStyle}"
             IsRunning="{Binding IsLoading}"
-            Color="White"
-            Margin="0,20,0,0"
-            HorizontalOptions="FillAndExpand" />
+            Margin="0,20,0,0"/>
     </StackLayout>
-    </ScrollView>
 </ContentPage>
