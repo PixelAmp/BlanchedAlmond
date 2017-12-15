@@ -38,10 +38,24 @@ namespace Week9PrismExampleApp.ViewModels
             set { SetProperty(ref _DisplayLocation, value); }
         }
 
+        private string _ImgHeight;
+        public string ImgHeight
+        {
+            get { return _ImgHeight; }
+            set { SetProperty(ref _ImgHeight,value);}
+        }
+
+        private string _ImgWidth;
+        public string ImgWidth
+        {
+            get { return _ImgWidth; }
+            set { SetProperty(ref _ImgWidth, value); }
+        }
 
         public MapPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
+            var embededImage = new Image { Aspect = Aspect.AspectFit };
             LocButtonClickedCommand = new DelegateCommand(LocButtonClicked);
         }
 
@@ -49,18 +63,18 @@ namespace Week9PrismExampleApp.ViewModels
         {
             int R;
             Random RNG = new Random();
-            R = RNG.Next(0,Urls.Length - 1 );
+            R = RNG.Next(0, Urls.Length - 1 );
             return R;
         }
-
 
         void LocButtonClicked()
         {
             int R = GetRandom();
-            DisplayLocation = Urls[R];
+            ImgWidth = "40";
+            ImgHeight = "40";
+            DisplayLocation = "/Users/Matt/BlanchedAlmond/Week9PrismExampleApp" + Urls[R];
             LocName = UrlNames[R];
         }
-
 
         public void OnNavigatedFrom(NavigationParameters parameters)
         {

@@ -14,22 +14,24 @@
         Padding="0,0,0,0">
             <Image 
                 Source="{Binding DisplayLocation}" 
-                VerticalOptions="Fill"
-                HorizontalOptions="Fill"
-                Margin="20"/>
-        
+                Width="{Binding ImgHeight}"
+                Height="{Binding ImgHeight}"
+                Margin="0,40,0,0"/>
+            <StackLayout>
             <Label
                 Text="{Binding LocName}"
                 FontAttributes="Bold"
                 TextColor="#f4d442"
-                FontSize="80"
-                HorizontalOptions="Center"/>
-            
+                FontSize="60"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                />
             <Button 
                 x:Name="NewLocation"
                 Text="Pick a place to drop"
                 Style="{StaticResource ClickableTextButtonStyle}"
                 Command="{Binding LocButtonClickedCommand}"/>
-
+        
+            </StackLayout>
     </StackLayout>
 </ContentPage>

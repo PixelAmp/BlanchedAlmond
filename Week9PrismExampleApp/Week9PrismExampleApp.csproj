@@ -65,6 +65,10 @@
       <DependentUpon>SearchUserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\SearchUserPageViewModel.cs" />
+    <Compile Include="ViewModels\MapPageViewModel.cs" />
+    <Compile Include="Views\MapPage.xaml.cs">
+      <DependentUpon>MapPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -76,6 +80,18 @@
     <EmbeddedResource Include="Views\SearchUserPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\MapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="images\everny.png" />
+    <EmbeddedResource Include="images\georgopel.png" />
+    <EmbeddedResource Include="images\lipovka.png" />
+    <EmbeddedResource Include="images\military.png" />
+    <EmbeddedResource Include="images\mylta.png" />
+    <EmbeddedResource Include="images\pochinki.png" />
+    <EmbeddedResource Include="images\primorsk.png" />
+    <EmbeddedResource Include="images\rozhok.png" />
+    <EmbeddedResource Include="images\yasnaya.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Prism">
@@ -138,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Views\MapPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\TimerPage.xaml">
