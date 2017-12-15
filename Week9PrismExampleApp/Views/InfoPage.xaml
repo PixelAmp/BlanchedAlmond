@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Week9PrismExampleApp.Views.InfoPage"
+             Title="Info Page"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Spacing="10" x:Name="layout" BackgroundColor ="BlanchedAlmond">
+
+                <Label                  
+                    Text="By popular demand, this app is all about:"   
+                    TextColor="Black"
+                    FontSize="Medium"
+                />
+                <Image 
+                    Source="PUBGBanner.jpg" 
+                    HorizontalOptions="FillAndExpand"
+                />
+                <Label 
+                    Text="What is PlayerUnknown's Battlegrounds?" 
+                    TextColor = "Black"                         
+                />
+                <Label TextColor="Black">
+
+                    Often referred to as PUBG, PlayerUnknown's Battlegrounds is a large-scale, competitive multiplayer survival game of Battle Royal.&#10;&#10;In the game, up to one hundred players parachute onto an island and scavenge for weapons and equipment to kill others while avoiding getting killed themselves. The available safe area of the game's world decreases in size over a match, directing surviving players into tighter areas to force encounters. The last player or team standing wins the round, earning an elusive Chicken Dinner.&#10;&#10;PUBG is a realistic, high tension game set on a massive 8x8 km island with a level of detail that showcases Unreal Engine 4's capabilities.&#10;&#10;The game is currently in Early Access on PC, receiving updates regularly in response to player feedback, with plans for a full release on Xbox One in the future.
+                </Label>
+                <Image 
+                    Source="ChickenDinner.png" 
+                />
+                <Label
+                    Text="PlayerUnknown's Battlegrounds is HUGE"
+                    TextColor="Black"
+                    FontSize="Large"  
+                />
+                <Image
+                    Source="PUBGStats.png"
+                    HorizontalOptions="FillAndExpand"
+                />
+                <Label TextColor="Black">
+
+                    The game was released for Microsoft Windows on Steam's early access program in March 2017 and made $11 million in the first three days of its early access release. By the second week of April 2017, the game had already sold over one million copies. It has been around six months since the game’s initial release date (or at least it has at the time of writing this) and the game has now sold over 10 million copies.
+
+                </Label>
+                <Label TextColor="Black">
+
+                    The developer released statistics for the first four months of release that showed that over ten million rounds of Battlegrounds had been played, effectively equal to more than 25,000 man-years of time. The data below demonstrates that Battlegrounds has surpassed long-standing behemoths in concurrent player count on Steam, such as Counter Strike: Global Offensive and Grand Theft Auto V, even surpassing Dota 2, the most played game on the platform.
+                </Label>
+                <Button
+                    x:name="Ask For Steam"
+                    Text="Do you play PUBG?"
+                    TextColor="Black"
+                    Clicked="Click"
+                    BackgroundColor="DarkTurquoise"
+                />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
