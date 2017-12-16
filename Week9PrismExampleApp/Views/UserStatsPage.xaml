@@ -45,5 +45,14 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button
+                x:Name="StartButton"
+                Style="{StaticResource ClickableTextButtonStyle}"
+                Text="Start Timer"
+                Command="{Binding BackNav}"
+                
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                />
     </StackLayout>
 </ContentPage>
