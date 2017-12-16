@@ -48,8 +48,8 @@
         <Button
                 x:Name="StartButton"
                 Style="{StaticResource ClickableTextButtonStyle}"
-                Text="Start Timer"
-                Command="{Binding BackNav}"
+                Text="Back"
+                Command="{Binding BackNavCommand}"
                 
                 VerticalOptions="Center"
                 HorizontalOptions="Center"

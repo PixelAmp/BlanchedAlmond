@@ -13,7 +13,7 @@ namespace Week9PrismExampleApp.ViewModels
 {
     public class UserStatsPageViewModel : BindableBase, INavigationAware
     {
-
+        public DelegateCommand BackNavCommand { get; set; }
         private StatsResponse _statsResponse;
         public StatsResponse StatsResponse
         {
@@ -23,9 +23,10 @@ namespace Week9PrismExampleApp.ViewModels
 
         private INavigationService _navigationService;
 
-        public UserStatsPageViewModel(INavigationService navService)
+        public UserStatsPageViewModel(INavigationService navigationService)
         {
-            _navigationService = navService;
+            _navigationService = navigationService;
+            BackNavCommand = new DelegateCommand(BackNav);
         }
 
         public async Task<StatsResponse> LoadUserStats(string username)
@@ -37,7 +38,7 @@ namespace Week9PrismExampleApp.ViewModels
             return stats;
         }
 
-        public async Task BackNav()
+        public async void BackNav()
         {
             await _navigationService.GoBackAsync();
         }
