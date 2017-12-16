@@ -21,9 +21,11 @@ namespace Week9PrismExampleApp.ViewModels
             set { SetProperty(ref _statsResponse, value); }
         }
 
-        public UserStatsPageViewModel()
+        private INavigationService _navigationService;
+
+        public UserStatsPageViewModel(INavigationService navService)
         {
-            
+            _navigationService = navService;
         }
 
         public async Task<StatsResponse> LoadUserStats(string username)
@@ -33,6 +35,11 @@ namespace Week9PrismExampleApp.ViewModels
 
             //stats.Stats[0].Stats[0].Stat
             return stats;
+        }
+
+        public async Task BackNav()
+        {
+            await _navigationService.GoBackAsync();
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

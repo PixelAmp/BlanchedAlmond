@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Week9PrismExampleApp.Droid</RootNamespace>
     <AssemblyName>Week9PrismExampleApp.Droid</AssemblyName>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
