@@ -39,6 +39,15 @@
             Color="White"
             Margin="0,20,0,0"
             HorizontalOptions="FillAndExpand" />
-    </StackLayout>
+            <Button
+                x:Name="StartButton"
+                Style="{StaticResource ClickableTextButtonStyle}"
+                Text="Back"
+                Command="{Binding BackNavCommand}"
+                
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                />
+        </StackLayout>
     </ScrollView>
 </ContentPage>

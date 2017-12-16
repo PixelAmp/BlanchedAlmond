@@ -22,6 +22,7 @@ namespace Week9PrismExampleApp.ViewModels
         private INavigationService _navigationService;
         private IPageDialogService _dialogService;
         public DelegateCommand SearchButtonClickedCommand { get; set; }
+        public DelegateCommand BackNavCommand { get; set; }
         private PUBGSharp.PUBGStatsClient statsClient;
 
         public SearchUserPageViewModel(INavigationService navigationService, IPageDialogService dialogService)
@@ -29,6 +30,7 @@ namespace Week9PrismExampleApp.ViewModels
             _navigationService = navigationService;
             _dialogService = dialogService;
             SearchButtonClickedCommand = new DelegateCommand(SearchButtonClicked);
+            BackNavCommand = new DelegateCommand(BackNav);
             statsClient = new PUBGSharp.PUBGStatsClient(ApiKeys.PUBG);
         }
 
@@ -76,6 +78,11 @@ namespace Week9PrismExampleApp.ViewModels
                 IsLoading = false;
                 await _dialogService.DisplayAlertAsync("Error", ex.Message, "OK");
             }
+        }
+
+        public async void BackNav()
+        {
+            await _navigationService.GoBackAsync();
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
