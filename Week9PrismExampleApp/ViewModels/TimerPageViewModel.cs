@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using System;
 using System.Text;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace Week9PrismExampleApp.ViewModels
 {
     public class TimerPageViewModel : BindableBase
     {
-        int CircleLayer = 1;
+        private INavigationService _navigationService;
         int shrink = 0;
         int second = 0;
         int minute = 5;
@@ -31,7 +32,14 @@ namespace Week9PrismExampleApp.ViewModels
 
         public DelegateCommand ResetTimerCommand { get; set; }
         public DelegateCommand StartTimerCommand { get; set; }
-        public DelegateCommand ShowInfoCommand { get; set; }
+        public DelegateCommand GoToMapCommand { get; set; }
+
+        public TimerPageViewModel(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
+            GoToMapCommand = new DelegateCommand(GoToMap);
+        }
+
 
         private string _secNum;
         public string SecNum
@@ -75,7 +83,6 @@ namespace Week9PrismExampleApp.ViewModels
         {
             ResetTimerCommand = new DelegateCommand(ResetTimer);
             StartTimerCommand = new DelegateCommand(StartTimer);
-            ShowInfoCommand = new DelegateCommand(ShowInfo);
         }
 
         void ResetTimer()
@@ -91,7 +98,6 @@ namespace Week9PrismExampleApp.ViewModels
             else
                 SecNum = second.ToString();
 
-            CircleLayer = 1;
             CirceNum = "1";
             LengthNum = "4550m";
             DamageNum = "0.4%";
@@ -99,13 +105,17 @@ namespace Week9PrismExampleApp.ViewModels
 
         void StartTimer()
         {
-            timer = true;
-            TimerLoop();
+            if (!timer)
+            {
+                ResetTimer();
+                timer = true;
+                TimerLoop();
+            }            
         }
 
-        async void ShowInfo()
+        public async void GoToMap()
         {
-            await DisplayAlert("Healing outside the Circle", "1-4    Bandages&#10;&#10;5    Bandages + Boosters&#10;&#10;6    First Aid Kit OR Med Kit&#10;&#10;7+   Nothing!", "OK");
+            await _navigationService.NavigateAsync("MapPage");
         }
 
         private Task DisplayAlert(string v1, string v2, string v3)
@@ -225,7 +235,6 @@ namespace Week9PrismExampleApp.ViewModels
                 default:
                     second = 0;
                     minute = 0;
-                    CircleLayer = 1;
                     CirceNum = "1";
                     LengthNum = "4550m";
                     DamageNum = "0.4%";
