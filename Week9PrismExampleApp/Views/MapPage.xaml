@@ -31,6 +31,11 @@
                 Text="Pick a place to drop"
                 Style="{StaticResource ClickableTextButtonStyle}"
                 Command="{Binding LocButtonClickedCommand}"/>
+            <Button
+                Text="Go to Blue Field Timer"
+                Margin="0,20,0,0"
+                Style="{StaticResource ClickableTextButtonStyle}"
+                Command="{Binding NavToTimerPageCommand}"/>
         
             </StackLayout>
     </StackLayout>

@@ -21,7 +21,8 @@ namespace Week9PrismExampleApp.ViewModels
     {
         private INavigationService _navigationService;
         public DelegateCommand LocButtonClickedCommand { get; set; }
-        string[] Urls = { "/images/everny.png","/images/georgopel.png","/images/lipovka.png","/images/military.png","/images/mylta.png","/images/pochinki.png","/images/rozhok.png","/images/yasnaya.png" };
+        public DelegateCommand NavToTimerPageCommand { get; set; }
+        string[] Urls = { "everny.png","georgopel.png","lipovka.png","military.png","mylta.png","pochinki.png","rozhok.png","yasnaya.png" };
         string[] UrlNames = { "Everny", "Georgopool", "Lipovka", "Military", "Mylta", "Pochinki", "Rozhok", "Yasnaya" };
 
         private string _LocName;
@@ -55,8 +56,15 @@ namespace Week9PrismExampleApp.ViewModels
         public MapPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
-            var embededImage = new Image { Aspect = Aspect.AspectFit };
             LocButtonClickedCommand = new DelegateCommand(LocButtonClicked);
+            NavToTimerPageCommand = new DelegateCommand(NavToTimerPage);
+        }
+
+        private async void NavToTimerPage()
+        {
+            var navParams = new NavigationParameters();
+            navParams.Add("NavFromPage", "MapPageViewModel");
+            await _navigationService.NavigateAsync("TimerPage", navParams);
         }
 
         public int GetRandom()
@@ -72,8 +80,11 @@ namespace Week9PrismExampleApp.ViewModels
             int R = GetRandom();
             ImgWidth = "40";
             ImgHeight = "40";
-            DisplayLocation = "/Users/Matt/BlanchedAlmond/Week9PrismExampleApp" + Urls[R];
+            DisplayLocation = Urls[R];
+           // DisplayLocation = "everny.png";
             LocName = UrlNames[R];
+
+           // DisplayLocation = ImageSource.FromResource(string.Format("Week9PrismExampleApp.images.everny.png", Image));
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)
