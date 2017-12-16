@@ -77,11 +77,18 @@ namespace Week9PrismExampleApp.ViewModels
             set { SetProperty(ref _damageNum, value); }
         }
 
+        private Color _timerColor;
+        public Color TimerColor
+        {
+            get { return _timerColor; }
+            set { SetProperty(ref _timerColor, value); }
+        }
+
         void ResetTimer()
         {
             timer = false;
-            second = 0;
-            minute = 5;
+            second = 10;
+            minute = 0;
             shrink = 0;
             MinNum = minute.ToString();
             if (second < 10)
@@ -93,6 +100,7 @@ namespace Week9PrismExampleApp.ViewModels
             CirceNum = "1";
             LengthNum = "4550m";
             DamageNum = "0.4%";
+            TimerColor = Color.FromHex("#f4d442");
         }
 
         void StartTimer()
@@ -113,27 +121,35 @@ namespace Week9PrismExampleApp.ViewModels
         public void OnStart()
         {
             ResetTimer();
-
         }
 
-        public void OnNavigatedFrom(NavigationParameters parameters)
+        public void OnNavigatedFrom()
         {
             ResetTimer();
         }
 
-        public void OnNavigatingTo(NavigationParameters parameters)
+        public void OnNavigatingTo()
         {
             ResetTimer();
         }
 
-        public void OnNavigatedTo(NavigationParameters parameters)
+        public void OnNavigatedTo()
         {
             ResetTimer();
-
         }
 
         void UpdatePage()
         {
+            if (shrink%2 == 0)//if circle is not shrinking
+            {
+                TimerColor = Color.FromHex("#f4d442");
+            }
+
+            else //if circle is shrinking, change timer color to blue
+            {
+                TimerColor = Color.FromHex("#00FFFF");
+            }
+
             switch (shrink)
             {
                 case 1: //circle shrinking for first time
