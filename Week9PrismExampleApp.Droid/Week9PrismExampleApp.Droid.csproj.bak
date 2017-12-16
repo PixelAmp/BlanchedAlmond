@@ -145,6 +145,18 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable\ChickenDinner.png" />
+    <AndroidResource Include="Resources\drawable\everny.png" />
+    <AndroidResource Include="Resources\drawable\georgopel.png" />
+    <AndroidResource Include="Resources\drawable\lipovka.png" />
+    <AndroidResource Include="Resources\drawable\military.png" />
+    <AndroidResource Include="Resources\drawable\mylta.png" />
+    <AndroidResource Include="Resources\drawable\pochinki.png" />
+    <AndroidResource Include="Resources\drawable\primorsk.png" />
+    <AndroidResource Include="Resources\drawable\PUBGBanner.jpg" />
+    <AndroidResource Include="Resources\drawable\PUBGStats.png" />
+    <AndroidResource Include="Resources\drawable\rozhok.png" />
+    <AndroidResource Include="Resources\drawable\yasnaya.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
