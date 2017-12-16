@@ -23,12 +23,11 @@ namespace Week9PrismExampleApp.ViewModels
     public class TimerPageViewModel : BindableBase
     {
         private INavigationService _navigationService;
+
         int shrink = 0;
         int second = 0;
         int minute = 5;
         bool timer = false;
-
-
 
         public DelegateCommand ResetTimerCommand { get; set; }
         public DelegateCommand StartTimerCommand { get; set; }
@@ -38,6 +37,8 @@ namespace Week9PrismExampleApp.ViewModels
         {
             _navigationService = navigationService;
             GoToMapCommand = new DelegateCommand(GoToMap);
+            ResetTimerCommand = new DelegateCommand(ResetTimer);
+            StartTimerCommand = new DelegateCommand(StartTimer);
         }
 
 
@@ -76,15 +77,6 @@ namespace Week9PrismExampleApp.ViewModels
             set { SetProperty(ref _damageNum, value); }
         }
 
-
-        
-
-        public TimerPageViewModel()
-        {
-            ResetTimerCommand = new DelegateCommand(ResetTimer);
-            StartTimerCommand = new DelegateCommand(StartTimer);
-        }
-
         void ResetTimer()
         {
             timer = false;
@@ -94,7 +86,7 @@ namespace Week9PrismExampleApp.ViewModels
             MinNum = minute.ToString();
             if (second < 10)
                 SecNum = "0" + second.ToString();
-            
+
             else
                 SecNum = second.ToString();
 
@@ -105,22 +97,17 @@ namespace Week9PrismExampleApp.ViewModels
 
         void StartTimer()
         {
-            if (!timer)
+            if (timer == false)
             {
                 ResetTimer();
                 timer = true;
                 TimerLoop();
-            }            
+            }
         }
 
         public async void GoToMap()
         {
             await _navigationService.NavigateAsync("MapPage");
-        }
-
-        private Task DisplayAlert(string v1, string v2, string v3)
-        {
-            throw new NotImplementedException();
         }
 
         public void OnStart()
@@ -142,7 +129,7 @@ namespace Week9PrismExampleApp.ViewModels
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             ResetTimer();
-            
+
         }
 
         void UpdatePage()
@@ -241,11 +228,12 @@ namespace Week9PrismExampleApp.ViewModels
                     timer = false;
                     break;
             }
-        }       
+        }
 
         void TimerLoop()
         {
-            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
                 if (timer)
                 {
                     TimeKeep();
@@ -281,8 +269,5 @@ namespace Week9PrismExampleApp.ViewModels
                 SecNum = second.ToString();
             }
         }
-
-    }
-
-    
+    }    
 }
