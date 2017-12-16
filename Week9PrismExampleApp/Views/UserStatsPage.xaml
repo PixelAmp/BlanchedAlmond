@@ -11,25 +11,39 @@
         Style="{StaticResource StackLayoutStyle}"
         Margin="0,20,0,0"
         Padding="30,50,30,0">
-        <Label
-            Text="PUBG Stats"
-            FontSize="20"
-            HorizontalOptions="Center"
-            FontAttributes="Bold"
-            TextColor="White"/>
-        <Entry
-            Style="{StaticResource EntryBoxStyle}"
-            Text="{Binding SearchUser_Entry_Text}"
-            Margin="0,20,0,0"
-            Placeholder="Enter a Battlegrounds Username..."/>
-        <Button
-            Style="{StaticResource ClickableTextButtonStyle}"
-            Text="Search"
-            Margin="0,20,0,0"
-            Command="{Binding SearchButtonClickedCommand}"/>
-        <ActivityIndicator
-            Style="{StaticResource ActivityIndicatorStyle}"
-            IsRunning="{Binding IsLoading}"
-            Margin="0,20,0,0"/>
+        <Label Text="Stats"/>
+        <Image  Source="{Binding StatsResponse.Avatar}"/>
+        <Label Text="{Binding StatsResponse.nickname}"/>
+        <ListView ItemsSource="{Binding StatsResponse.Stats}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding Mode}" />
+                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding KdRatio.Stat}" />
+                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding KdRatio.Value}" />
+                            <Label Grid.Column="2" Grid.Row="0" Text="{Binding WinPercent.Stat}" />
+                            <Label Grid.Column="2" Grid.Row="1" Text="{Binding WinPercent.Value}" />
+                            <Label Grid.Column="3" Grid.Row="0" Text="{Binding TimeSurvived.Stat}" />
+                            <Label Grid.Column="3" Grid.Row="1" Text="{Binding TimeSurvived.Value}" />
+                            <Label Grid.Column="4" Grid.Row="0" Text="{Binding RoundsPlayed.Stat}" />
+                            <Label Grid.Column="4" Grid.Row="1" Text="{Binding RoundsPlayed.Value}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>
