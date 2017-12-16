@@ -151,6 +151,17 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\everny.png" />
+    <BundleResource Include="Resources\georgopel.png" />
+    <BundleResource Include="Resources\lipovka.png" />
+    <BundleResource Include="Resources\military.png" />
+    <BundleResource Include="Resources\mylta.png" />
+    <BundleResource Include="Resources\pochinki.png" />
+    <BundleResource Include="Resources\primorsk.png" />
+    <BundleResource Include="Resources\rozhok.png" />
+    <BundleResource Include="Resources\yasnaya.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.4.0.38779\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.38779\build\netstandard1.0\Xamarin.Forms.targets')" />
 </Project>

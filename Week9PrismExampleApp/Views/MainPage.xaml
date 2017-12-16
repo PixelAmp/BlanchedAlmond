@@ -37,7 +37,7 @@
                 Command="{Binding NavToUserStatsPageCommand}"/>
 
             <Button
-                Text="Map"
+                Text="Drop Selector"
                 Margin="0,20,0,0"
                 Style="{StaticResource ClickableTextButtonStyle}"
                 Command="{Binding NavToMapPageCommand}"
